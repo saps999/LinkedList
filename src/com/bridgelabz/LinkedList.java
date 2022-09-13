@@ -27,40 +27,22 @@ public class LinkedList<T> {
         currnode.next = newNode;
     }
 
-    public void delete() {
-        if (head == null) {
-            System.out.println("The list is empty");
-        }
-        if (head.next == null) {
-            head = null;
-        }
-        Node secondLast = head;
-        Node lastNode = head.next;
-        while (lastNode.next != null) {
-            lastNode = lastNode.next;
-            secondLast = secondLast.next;
-        }
-        secondLast.next = null;
-
-    }
-
-    public void display() {
-        if (head == null) {
-            System.out.println("List is empty");
-        }
+    public boolean search(T value) {
         Node currnode = head;
         while (currnode != null) {
-            System.out.println(currnode.data + " ");
+            if (currnode.data.equals(value)) {
+                return true;
+            }
             currnode = currnode.next;
         }
+        return false;
     }
 
     public static void main(String[] args) {
-        LinkedList l1 = new LinkedList();
-        l1.add(56);
-        l1.add(30);
-        l1.add(70);
-        l1.delete();
-        l1.display();
+        LinkedList list = new LinkedList();
+        list.add(56);
+        list.add(30);
+        list.add(70);
+        System.out.println(list.search(30));
     }
 }
