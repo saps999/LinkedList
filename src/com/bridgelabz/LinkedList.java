@@ -1,29 +1,48 @@
 package com.bridgelabz;
 
 public class LinkedList {
+    public Node head;
+    public Node tail;
+
     static class Node {
         int data;
         Node next;
 
         Node(int data) {
             this.data = data;
+            this.next = null;
         }
+    }
 
+    public void add(int data) {
+        Node newNode = new Node(data);
+
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
+    }
+
+    public void display() {
+        Node current = head;
+        if (head == null) {
+            System.out.println("List is empty");
+        }
+        while (current != null) {
+            System.out.println(current.data + " ");
+            current = current.next;
+        }
     }
 
     public static void main(String[] args) {
 
-        Node l1 = new Node(56);
-        Node l2 = new Node(30);
-        Node l3 = new Node(70);
-        Node head = l1;
-        head.next = l2;
-        l2.next = l3;
-        l3.next = null;
-        System.out.println("Data in the Linked list are : " + l1.data + ", " + l2.data + ", " + l3.data);
-        System.out.println("Address of node n1 is : " + l1.next);
-        System.out.println("Address of node n2 is : " + l2.next);
-        System.out.println("Address of node n3 is : " + l3.next);
+        LinkedList l1 = new LinkedList();
+        l1.add(70);
+        l1.add(30);
+        l1.add(56);
+        l1.display();
     }
-
 }
