@@ -8,7 +8,7 @@ public class LinkedList {
         int data;
         Node next;
 
-        Node(int data) {    // when we call this constructor it will create new node everytime
+        Node(int data) {    
             this.data = data;
             this.next = null;
         }
